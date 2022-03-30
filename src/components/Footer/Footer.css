@@ -1,0 +1,145 @@
+
+footer h6 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0.5rem 0;
+}
+
+section p {
+  margin-bottom: 0.7rem
+}
+
+.container {
+  /* background-color: white; */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top: .2rem solid rgb(214, 214, 214);
+  /* outline: 1px solid red; */
+}
+
+.grid-container {
+  /* padding: 2rem; */
+  margin: 2rem auto;
+  display: grid;
+  gap: 1.5rem;
+  column-gap: 1.8rem;
+  grid-template-columns: repeat(2, fit-content(1fr));
+  /* grid-template-rows: repeat(4, auto); */
+  grid-template-areas:
+    'newsletter newsletter'
+    'contact chat'
+    'social social'
+    'copyright copyright'
+  ;
+  justify-items: center;
+  width: clamp(10rem, 80%, 50rem);
+  /* outline: 1px solid red; */
+}
+
+/* grid location classes */
+
+.grid-newsletter {
+  grid-area: newsletter;
+  /* width: 100%; */
+  /* outline: 1px solid red; */
+}
+.grid-contact {
+  grid-area: contact;
+}
+.grid-social {
+  grid-area: social;
+}
+.grid-copyright {
+  /* outline: 1px solid red; */
+  grid-area: copyright;
+}
+
+.signup-title {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: .8rem;
+}
+
+
+.input-email {
+  width: 90%;
+  height: 2rem;
+  padding: 0.2rem 0.4rem;
+  /* display: block; */
+  border: 1px solid grey;
+  border-right: 0;
+
+}
+.input-email:focus {
+  outline: 0;
+  border-color: tomato;
+
+}
+
+.input-button {
+  padding: 0.22rem 0.5rem;
+  border-radius: 0;
+  box-shadow: none;
+  border: 1px solid var(--fontColor);
+  border-left: 0;
+  background-color: var(--fontColor);
+  color: whitesmoke;
+  cursor: pointer;
+  transition: background-color 200ms ease;
+  width: 10%;
+  height: 2rem;
+}
+
+.input-button:hover {
+  background-color: var(--logoColor);
+}
+
+.icon {
+  filter: invert(100);
+  width: .8rem;
+}
+.contact-icon {
+  margin-right: 1rem;
+}
+.social-container {
+  display: flex;
+  justify-content: space-evenly;
+  /* width: 100%; */
+}
+.social-icon {
+  color: var(--fontColor);
+  margin: 0 0.2rem;
+}
+
+.chat-link {
+  color: var(--logoColor)
+}
+.legal-container  {
+  display: block;
+}
+
+.legal-container li{
+  list-style-type: none;
+  display: inline-block;
+  margin: 0 .75rem;
+  color: rgb(128, 128, 128)
+}
+
+/* media queries */
+
+@media only screen and (max-width: 40em) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'newsletter'
+      'contact'
+      'chat'
+      'social'
+      'copyright' ;
+  }
+  .legal-container li {
+    font-size: 0.75rem;
+    margin: 0 0.6rem;
+  }
+}
