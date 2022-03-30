@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { motion } from 'framer-motion';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
@@ -30,8 +30,9 @@ const ACCESSORY_LINKS = [
   'https://assets.atmos-tokyo.com/items/S/t23-21-006-blk-1s.jpg',
   'https://assets.atmos-tokyo.com/items/S/atm-pa-s012-naw-1s.jpg',
 ];
-function ListImgs() {
+function ListImgs(props: {tabIndexStart?: number}) {
   // console.log('render display container');
+  const indexStart = props.tabIndexStart ? props.tabIndexStart : 0;
 
   const [displayImages, setDisplayImages] = useState({
     category: 'lifestyle',
@@ -65,7 +66,7 @@ function ListImgs() {
             <h4>CATEGORIES</h4>
           </li>
           {CATEGORIES.map((link, index) => (
-            <li className='category-link' tabIndex={index} key={uuidv4()}>
+            <li className='category-link' tabIndex={index + indexStart} key={uuidv4()}>
               <a
                 href='#'
                 onClick={(e) => {
@@ -83,7 +84,7 @@ function ListImgs() {
         {/* gallery */}
 
         <div className='img-gallery'>
-          {displayImages.links.map((image, index: number) => (
+          {displayImages.links.map((image, index) => (
             <motion.div
               className='img-container'
               initial={{ opacity: 0 }}

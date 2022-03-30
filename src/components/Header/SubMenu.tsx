@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import ListImgs from './ListImgs';
 
-const SubMenu = (props: { onLeave?: () => void; keyRef: string }) => {
+const SubMenu = (props: { onLeave?: () => void; keyRef: string, indexStart: number }) => {
   // console.log('render sub menu ');
   return (
     <motion.div
@@ -13,7 +13,7 @@ const SubMenu = (props: { onLeave?: () => void; keyRef: string }) => {
       animate={{ scaleY: 1 }}
       exit={{ scaleY: 0, opacity: 0, transition: { delay: 0.25 } }}
     >
-      <ListImgs />
+      <ListImgs tabIndexStart={props.indexStart}/>
     </motion.div>
   );
 };
