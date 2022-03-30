@@ -1,0 +1,43 @@
+aside {
+  /* background-color: aquamarine; */
+  position: fixed;
+  inset: 0 0 0 0;
+  transform-origin: right;
+  z-index: 1000;
+  display: grid;
+  grid-template-columns: 2fr 1.5fr;
+  grid-template-areas:
+    'overlay cart';
+}
+
+.grid-cart {
+  grid-area: cart;
+}
+
+.grid-overlay {
+  grid-area: overlay;
+}
+
+.cart {
+  background-color: var(--bgColor);
+  box-shadow: -10px 0 10px rgb(102, 102, 102);
+  padding: 1rem 2rem;
+}
+
+.overlay {
+  /* background-color: white; */
+  /* opacity: 85%; */
+  background-color: rgba(255, 255, 255, .9);
+  backdrop-filter: blur(3px);
+}
+
+@media only screen and (max-width: 40em) {
+  .overlay {
+    display: none
+  }
+
+  aside {
+    grid-template-columns: 1fr;
+    grid-template-areas: 'cart';
+  }
+}
