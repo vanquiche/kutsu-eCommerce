@@ -1,95 +1,100 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { Link } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
+import { BsFillBagFill } from 'react-icons/bs';
+import MenuBtn from './MenuBtn';
 import SubMenu from './SubMenu';
 import './Header.css';
+import MobileDropdown from './MobileDropdown';
+import CartMenu from '../Cart/CartMenu';
 
 const navlinks = [
   {
-    text: 'Kutsu',
-    path: '/',
-    group: false,
-    showMenu: false,
-    links: [],
+    text: 'shop',
+    path: '/shop',
   },
   {
-    text: null,
-    path: null,
-    group: true,
-    showMenu: false,
-    links: ['shop', 'workshop', 'sale'],
+    text: 'workshop',
+    path: '/workshop',
   },
   {
-    text: 'Cart',
-    path: null,
-    group: false,
-    links: [],
+    text: 'sale',
+    path: '/sale',
   },
 ];
 
 const Header = () => {
   // console.log('render header');
-
-  const [subMenuActive, setSubMenuActive] = useState(false);
+  const [showCartMenu, setShowCartMenu] = useState(false);
+  const [showDesktopMenu, setShowDesktopMenu] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   const closeMenu = () => {
-    if (subMenuActive === true) setSubMenuActive(false);
+    if (showDesktopMenu === true) setShowDesktopMenu(false);
     else return;
-  }
+  };
+
+  const closeCartMenu = () => {
+    // setShowMobileMenu(false);
+    setShowCartMenu(false);
+  };
 
   return (
     <>
       <header>
         <nav>
-          {navlinks.map((link, index) => {
-            if (link.path === '/') {
+          <MenuBtn
+            onClick={() => setShowMobileMenu((state) => !state)}
+            state={showMobileMenu}
+          />
+          <Link
+            className='grid-col-1 center logo'
+            key={uuidv4()}
+            onMouseEnter={closeMenu}
+            to='/'
+            tabIndex={1}
+          >
+            Kutsu
+          </Link>
+
+          <div className='grid-col-2 nav-link-group start'>
+            {navlinks.map((link, index) => {
               return (
-                <ul className='logo center' key={uuidv4()}>
-                  <li
-                    className='logo-text'
-                    key={uuidv4()}
-                    onMouseEnter={closeMenu}
-                  >
-                    {link.text}
-                  </li>
-                </ul>
+                <Link
+                  className='nav-link'
+                  key={uuidv4()}
+                  onMouseEnter={
+                    link.text === 'shop'
+                      ? () => setShowDesktopMenu(true)
+                      : closeMenu
+                  }
+                  to={link.path}
+                  tabIndex={index + 2}
+                >
+                  {link.text}
+                </Link>
               );
-            }
-            if (link.group === true) {
-              return (
-                <ul key={uuidv4()} className='col-1 spread'>
-                  {link.links.map((item) => {
-                    if (item === 'shop') {
-                      return (
-                        <li
-                          key={uuidv4()}
-                          onMouseEnter={() => setSubMenuActive(true)}
-                        >
-                          {item}
-                        </li>
-                      );
-                    } else
-                      return (
-                        <li key={uuidv4()} onMouseEnter={closeMenu}>
-                          {item}
-                        </li>
-                      );
-                  })}
-                </ul>
-              );
-            } else
-              return (
-                <ul key={uuidv4()} className='col-3 end'>
-                  <li key={uuidv4()} onMouseEnter={closeMenu}>
-                    {link.text}
-                  </li>
-                </ul>
-              );
-          })}
+            })}
+          </div>
+
+          <span className='grid-col-3'>
+            <button
+              tabIndex={5}
+              onClick={() => setShowCartMenu(true)}
+              onMouseEnter={closeMenu}
+            >
+              <BsFillBagFill size='1.2em' />
+            </button>
+          </span>
         </nav>
       </header>
       <AnimatePresence>
-        {subMenuActive && <SubMenu keyRef='menu' onLeave={closeMenu} />}
+        {showDesktopMenu && (
+          <SubMenu keyRef='desktop' onLeave={closeMenu} indexStart={5} />
+        )}
+        {showMobileMenu && <MobileDropdown links={navlinks} keyRef='mobile' />}
+        {showCartMenu && <CartMenu keyRef='cart' onClose={closeCartMenu} />}
       </AnimatePresence>
     </>
   );
