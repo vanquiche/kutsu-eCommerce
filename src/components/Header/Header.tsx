@@ -25,7 +25,7 @@ const navlinks = [
 ];
 
 const Header = () => {
-  // console.log('render header');
+  console.log('render header');
   const [showCartMenu, setShowCartMenu] = useState(false);
   const [showDesktopMenu, setShowDesktopMenu] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);

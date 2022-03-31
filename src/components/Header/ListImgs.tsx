@@ -31,7 +31,7 @@ const ACCESSORY_LINKS = [
   'https://assets.atmos-tokyo.com/items/S/atm-pa-s012-naw-1s.jpg',
 ];
 function ListImgs(props: {tabIndexStart?: number}) {
-  // console.log('render display container');
+  console.log('render display container');
   const indexStart = props.tabIndexStart ? props.tabIndexStart : 0;
 
   const [displayImages, setDisplayImages] = useState({
