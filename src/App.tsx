@@ -1,21 +1,42 @@
-import React, { useState, createContext } from 'react';
+import React, { createContext, useReducer } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import './App.css';
-import { CartContext, defaultValue } from './contexts/CartContext';
 
+type Action = 'increment' | 'decrement';
+type Cart = { cart: number };
+
+interface CartContextType {
+  state: Cart;
+  dispatch: React.Dispatch<Action>;
+}
+
+const initialState = { cart: 0 };
+
+export const CartContext = createContext<CartContextType>({
+  state: initialState,
+  dispatch: () => {},
+});
+
+const reducer = (state: Cart, action: Action) => {
+  switch (action) {
+    case 'increment':
+      return { cart: state.cart + 1 };
+    case 'decrement':
+      return { cart: state.cart - 1 };
+    default:
+      // throw new Error();
+      return state;
+  }
+};
 
 function App() {
   console.log('render App');
-  
-  // home page
-  // checkout page
-  // product page by id
-  // const location = useLocation()
-  const [cart, setCart] = useState(defaultValue.cart);
+
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <CartContext.Provider value={{cart, setCart}}>
+    <CartContext.Provider value={{ state, dispatch }}>
       <Routes>
         <Route path='/'>
           <Route index element={<Home />} />
