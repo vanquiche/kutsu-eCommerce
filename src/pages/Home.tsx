@@ -1,28 +1,14 @@
-import React, { useContext } from 'react';
-import { CartContext } from '../App';
+import { Link } from 'react-router-dom';
 import Layout from '../components/Layout/Layout';
-
+import Product from '../components/Product/Product';
 const Home = () => {
-  const { state, dispatch } = useContext(CartContext);
+
 
   return (
     <Layout>
-      <div style={{ margin: '1rem 2rem' }}>
-        <h1>Hello World</h1>
-        <p>{state.cart}</p>
-        <button
-          style={{ display: 'block', margin: '1rem 0' }}
-          onClick={() => dispatch('increment')}
-        >
-          add
-        </button>
-        <button
-          style={{ display: 'block', margin: '1rem 0' }}
-          onClick={() => dispatch('decrement')}
-        >
-          subtract
-        </button>
-      </div>
+      <h1>Home</h1>
+    {/* <Product /> */}
+    <Link to='/shop'>Shop</Link>
     </Layout>
   );
 };
