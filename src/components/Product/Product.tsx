@@ -1,10 +1,22 @@
 import React from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { Product } from '../../contexts/CartContext';
 import './Product.css';
 
+interface DbProduct {
+  id: number,
+  title: string,
+  price: number,
+  description: string,
+  category: string,
+  image: string,
+  rating: {
+    rate: number,
+    count: number
+  }
+}
+
 interface Props {
-  product?: Product;
+  product?: DbProduct;
 }
 
 const Product: React.FC<Props> = ({ product }) => {
@@ -18,7 +30,7 @@ const Product: React.FC<Props> = ({ product }) => {
         className='product-image'
         effect='blur'
       />
-      <p className='product-name'>{product?.item}</p>
+      <p className='product-name'>{product?.title}</p>
       <p className='product-price'>{product?.price}</p>
     </div>
   );
