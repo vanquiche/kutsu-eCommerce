@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Link } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
@@ -8,6 +8,8 @@ import SubMenu from './SubMenu';
 import './Header.css';
 import MobileDropdown from './MobileDropdown';
 import CartMenu from '../Cart/CartMenu';
+
+
 
 const navlinks = [
   {
@@ -29,6 +31,7 @@ const Header = () => {
   const [showCartMenu, setShowCartMenu] = useState(false);
   const [showDesktopMenu, setShowDesktopMenu] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+
 
   const closeMenu = () => {
     if (showDesktopMenu === true) setShowDesktopMenu(false);
@@ -100,4 +103,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default React.memo(Header);
