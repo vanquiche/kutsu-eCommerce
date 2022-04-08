@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { ProductType, CartContext } from '../../contexts/CartContext';
+import { v4 } from 'uuid';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import Recommended from './Recommended';
@@ -28,9 +29,9 @@ const ProductPage: React.FC<Props> = ({ product }) => {
           <p>IN STOCK</p>
           <div className='review-container'>
             {[...Array(product?.rating)].map(() => (
-              <AiFillStar size='1rem' />
+              <AiFillStar key={v4()} />
             ))}
-            {product?.rating < 5 ? [...Array(5 - product?.rating)].map(() => <AiOutlineStar size='1rem' />) : false}
+            {product?.rating < 5 ? [...Array(5 - product?.rating)].map(() => <AiOutlineStar key={v4()} />) : false}
             <p className='review-count'>
               {product?.reviews} reviews
             </p>
