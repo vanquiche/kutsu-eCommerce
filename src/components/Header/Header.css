@@ -10,6 +10,7 @@
 header {
   background-color: var(--navColor);
   z-index: 1000;
+  font-size: 1rem;
   /* padding: 20px; */
 }
 
@@ -18,11 +19,14 @@ nav {
   width: 100%;
   padding: 1rem 2rem;
   display: grid;
-  grid-template-columns: 2rem 5fr 2rem;
+  grid-template-columns: 2.5rem 5fr 2rem;
   grid-template-rows: 1fr;
   grid-template-areas: 'col-1 col-2 col-3';
-  gap: 1rem;
+  gap: 1.5rem;
   justify-items: center;
+  align-items: center;
+  /* outline: 1px solid red; */
+  /* position: fixed; */
 }
 
 nav ul {
@@ -70,7 +74,7 @@ a {
 
 /* CLASSES */
 .logo {
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--logoColor);
 }
@@ -97,6 +101,7 @@ a {
   z-index: 100;
   box-shadow: 1px 5px 5px rgb(226, 226, 226);
   position: absolute;
+  /* top: 0; */
   left: 0;
   right: 0;
 }
@@ -107,6 +112,7 @@ a {
   grid-template-columns: 1fr 6fr;
   grid-template-areas: 'category images';
   padding: 10px;
+  /* outline: 1px solid red; */
 }
 .img-gallery {
   display: flex;
@@ -127,7 +133,7 @@ a {
 }
 
 .category-link-container {
-  height: 340px;
+  height: 280px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -152,7 +158,7 @@ a {
   width: 100%;
   display: block;
   object-fit: contain;
-  max-width: 300px;
+  max-width: 225px;
 }
 
 .mobile-menu-container {

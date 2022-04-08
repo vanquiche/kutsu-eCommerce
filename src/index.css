@@ -18,6 +18,7 @@ body,html {
     font-size: .9rem;
   color: var(--fontColor);
   background-color: var(--bgColor);
+  line-height: 1.4rem;
 }
 li:focus {
   outline: none;
