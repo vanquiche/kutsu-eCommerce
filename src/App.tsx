@@ -1,23 +1,30 @@
-import React, { createContext, useReducer } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { useReducer } from 'react';
+import { Routes, Route, Outlet } from 'react-router-dom';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
-import ProductPage from './pages/ProductPage';
+import ShopItem from './pages/ShopItem';
 import './App.css';
 
+import { CartContext, reducer } from './contexts/CartContext';
+
 function App() {
-  console.log('render App');
+  const userCart = JSON.parse(localStorage.getItem('cart') || '[]')
+  const [state, dispatch] = useReducer(reducer, userCart)
 
   return (
-    <Routes>
-      <Route path='/'>
-        <Route index element={<Home />} />
-      </Route>
-      <Route path='shop'>
-        <Route index element={<Shop />} />
-        <Route path=':id' element={<ProductPage />} />
-      </Route>
-    </Routes>
+    <CartContext.Provider value={{state, dispatch}} >
+      <Routes>
+        <Route path='/'>
+          <Route index element={<Home />} />
+        </Route>
+        <Route path='shop'>
+          <Route index element={<Shop />} />
+          <Route path=':id' element={<ShopItem />} />
+      
+
+        </Route>
+      </Routes>
+    </CartContext.Provider>
   );
 }
 
