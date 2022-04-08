@@ -31,10 +31,14 @@ const saveState = (state: ProductType[]) => {
   localStorage.setItem('cart', JSON.stringify(state));
 };
 
-const addItem = (state: ProductType[], product: ProductType) => {
-  const newState = [...state, Object.assign({}, product)];
-  saveState(newState);
-  return newState;
+const addItem = (state: ProductType[], action: Action) => {
+  if (state.some((product) => product.id === action.product?.id)) {
+    return addQty(state, action);
+  } else {
+    const newState = [...state, Object.assign({}, action.product)];
+    saveState(newState);
+    return newState;
+  }
 };
 
 const addQty = (state: ProductType[], action: Action) => {
@@ -75,7 +79,7 @@ export const reducer = (
     case 'decrement':
       return subtractQty(state, action);
     case 'add item':
-      return addItem(state, action.product!);
+      return addItem(state, action);
     case 'remove item':
       return removeItem(state, action);
     default:
