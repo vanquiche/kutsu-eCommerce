@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Link } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
@@ -8,8 +8,8 @@ import SubMenu from './SubMenu';
 import './Header.css';
 import MobileDropdown from './MobileDropdown';
 import CartMenu from '../Cart/CartMenu';
-
-
+import { CartContext } from '../../contexts/CartContext';
+import CartBtn from './CartBtn';
 
 const navlinks = [
   {
@@ -27,11 +27,9 @@ const navlinks = [
 ];
 
 const Header = () => {
-  // console.log('render header');
   const [showCartMenu, setShowCartMenu] = useState(false);
   const [showDesktopMenu, setShowDesktopMenu] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-
 
   const closeMenu = () => {
     if (showDesktopMenu === true) setShowDesktopMenu(false);
@@ -40,9 +38,8 @@ const Header = () => {
   const openCartMenu = () => {
     setShowCartMenu(true);
     document.body.style.overflowY = 'hidden';
-  }
+  };
   const closeCartMenu = () => {
-    // setShowMobileMenu(false);
     document.body.style.overflowY = 'scroll';
     setShowCartMenu(false);
   };
@@ -84,16 +81,7 @@ const Header = () => {
               );
             })}
           </div>
-
-          <span className='grid-col-3'>
-            <button
-              tabIndex={5}
-              onClick={openCartMenu}
-              onMouseEnter={closeMenu}
-            >
-              <BsFillBagFill size='1.2em' />
-            </button>
-          </span>
+          <CartBtn handleClick={openCartMenu} handleMouseEnter={closeMenu} />
         </nav>
       </header>
       <AnimatePresence>
