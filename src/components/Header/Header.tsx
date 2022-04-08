@@ -27,7 +27,7 @@ const navlinks = [
 ];
 
 const Header = () => {
-  console.log('render header');
+  // console.log('render header');
   const [showCartMenu, setShowCartMenu] = useState(false);
   const [showDesktopMenu, setShowDesktopMenu] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -37,9 +37,13 @@ const Header = () => {
     if (showDesktopMenu === true) setShowDesktopMenu(false);
     else return;
   };
-
+  const openCartMenu = () => {
+    setShowCartMenu(true);
+    document.body.style.overflowY = 'hidden';
+  }
   const closeCartMenu = () => {
     // setShowMobileMenu(false);
+    document.body.style.overflowY = 'scroll';
     setShowCartMenu(false);
   };
 
@@ -84,7 +88,7 @@ const Header = () => {
           <span className='grid-col-3'>
             <button
               tabIndex={5}
-              onClick={() => setShowCartMenu(true)}
+              onClick={openCartMenu}
               onMouseEnter={closeMenu}
             >
               <BsFillBagFill size='1.2em' />

@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import { CartContext, Product } from '../../contexts/CartContext';
+import { CartContext, ProductType } from '../../contexts/CartContext';
 import { HiMinus, HiPlus } from 'react-icons/hi';
 import './CartMenu.css';
 
-const CartItem = (props: { product: Product, keyRef: string }) => {
+const CartItem = (props: { product: ProductType, keyRef: string }) => {
   const { dispatch } = useContext(CartContext);
 
   return (

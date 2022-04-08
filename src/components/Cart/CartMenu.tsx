@@ -7,7 +7,7 @@ import { CartContext } from '../../contexts/CartContext';
 import CartItem from './CartItem';
 
 const CartMenu = (props: { keyRef: string; onClose: () => void }) => {
-  console.log('render cart');
+
   const { state } = useContext(CartContext);
 
   return (
