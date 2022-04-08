@@ -1,21 +1,23 @@
 import React, { createContext } from 'react';
 
-export interface Product {
+export interface ProductType {
   id: string;
   item: string;
   qty: number;
+  reviews: number;
+  rating: number;
   price: number;
   image?: string;
 }
 
 interface CartContextType {
-  state: Product[];
+  state: ProductType[];
   dispatch: React.Dispatch<Action>;
 }
 
 export type Action = {
   type: 'increment' | 'decrement' | 'add item' | 'remove item';
-  product?: Product;
+  product?: ProductType;
 };
 
 export const initialState = [];
@@ -25,30 +27,58 @@ export const CartContext = createContext<CartContextType>({
   dispatch: () => {},
 });
 
-export const reducer = (state: Product[], action: Action): Product[] => {
+const saveState = (state: ProductType[]) => {
+  localStorage.setItem('cart', JSON.stringify(state));
+};
+
+const addItem = (state: ProductType[], product: ProductType) => {
+  const newState = [...state, Object.assign({}, product)];
+  saveState(newState);
+  return newState;
+};
+
+const addQty = (state: ProductType[], action: Action) => {
+  const newState = state.map((product) => {
+    if (product.id === action.product!.id) {
+      return { ...product, qty: product.qty + 1 };
+    } else return product;
+  });
+  saveState(newState);
+  return newState;
+};
+
+const subtractQty = (state: ProductType[], action: Action) => {
+  const newState = state.map((product) => {
+    if (product.id === action.product!.id) {
+      return { ...product, qty: product.qty - 1 };
+    } else return product;
+  });
+  saveState(newState);
+  return newState;
+};
+
+const removeItem = (state: ProductType[], action: Action) => {
+  const newState = state.filter((product) => {
+    if (product.id !== action.product!.id) return product;
+  });
+  saveState(newState);
+  return newState;
+};
+
+export const reducer = (
+  state: ProductType[],
+  action: Action
+): ProductType[] => {
   switch (action.type) {
     case 'increment':
-      return state.map((product) => {
-        if (product.id === action.product!.id) {
-          return { ...product, qty: product.qty + 1 };
-        } else return product;
-      });
+      return addQty(state, action);
     case 'decrement':
-      return state.map((product) => {
-        if (product.id === action.product!.id) {
-          return { ...product, qty: product.qty - 1 };
-        } else return product;
-      });
+      return subtractQty(state, action);
     case 'add item':
-      return [...state, Object.assign({}, action.product)]
+      return addItem(state, action.product!);
     case 'remove item':
-      return state.filter((product) => {
-        if (product.id !== action.product!.id) {
-          return product;
-        }
-      });
+      return removeItem(state, action);
     default:
-      // throw new Error();
       return state;
   }
 };
