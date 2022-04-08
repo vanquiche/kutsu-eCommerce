@@ -1,15 +1,17 @@
 import React, { useContext } from 'react';
 import { CartContext, ProductType } from '../../contexts/CartContext';
-import { HiMinus, HiPlus } from 'react-icons/hi';
+import { HiMinus, HiPlus, HiTrash } from 'react-icons/hi';
 import './CartMenu.css';
 
 const CartItem = (props: { product: ProductType, keyRef: string }) => {
   const { dispatch } = useContext(CartContext);
 
   return (
-    <div key={props.keyRef}>
-      <p>{props.product.item}</p>
-      <p>${props.product.price}</p>
+    <div key={props.keyRef} className='cart-container' >
+      <img src={props.product.image} className='cart-thumbnail' />
+      <div className='cart-detail-container'>
+      <p className='cart-name'>{(props.product.item).toUpperCase()}</p>
+      <p className='cart-price'>${props.product.price}</p>
       <div className='qty-container'>
         <button
           onClick={() =>
@@ -25,7 +27,7 @@ const CartItem = (props: { product: ProductType, keyRef: string }) => {
               dispatch({ type: 'remove item', product: props.product })
             }
           >
-            delete
+            <HiTrash size='1.2em' color='tomato'/>
           </button>
         ) : (
           <p>{props.product.qty}</p>
@@ -38,6 +40,8 @@ const CartItem = (props: { product: ProductType, keyRef: string }) => {
         >
           <HiPlus size='1.2em' />
         </button>
+
+      </div>
       </div>
     </div>
   );
