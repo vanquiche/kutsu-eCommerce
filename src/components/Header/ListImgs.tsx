@@ -6,25 +6,25 @@ import './Header.css';
 
 const CATEGORIES = ['lifestyle', 'athletic', 'fashion', 'accessories'];
 
-const LIFESTYLE_LINKS = [
+export const LIFESTYLE_LINKS = [
   'https://assets.atmos-tokyo.com/items/S/dq8768-100-1s.jpg',
   'https://assets.atmos-tokyo.com/items/S/dh4621-300-1s.jpg',
   'https://assets.atmos-tokyo.com/items/S/1201a490-020-1s.jpg',
   'https://assets.atmos-tokyo.com/items/S/31305940-1s.jpg',
 ];
-const FASHION_LINKS = [
+export const FASHION_LINKS = [
   'https://assets.atmos-tokyo.com/items/S/31306640-1s.jpg',
   'https://assets.atmos-tokyo.com/items/S/do9355-300-1s.jpg',
   'https://assets.atmos-tokyo.com/items/S/35500370-1s.jpg',
   'https://assets.atmos-tokyo.com/items/S/1125510-wpms-1s.jpg',
 ];
-const ATHLETIC_LINKS = [
+export const ATHLETIC_LINKS = [
   'https://assets.atmos-tokyo.com/items/S/dh1270-001-1s.jpg',
   'https://assets.atmos-tokyo.com/items/S/dq8344-100-1s.jpg',
   'https://assets.atmos-tokyo.com/items/S/dc9339-200-1s.jpg',
   'https://assets.atmos-tokyo.com/items/S/dc7700-073-1s.jpg',
 ];
-const ACCESSORY_LINKS = [
+export const ACCESSORY_LINKS = [
   'https://assets.atmos-tokyo.com/items/S/kr21aw-ot03-wht-1s.jpg',
   'https://assets.atmos-tokyo.com/items/S/kr21aw-ot01-blk-1s.jpg',
   'https://assets.atmos-tokyo.com/items/S/t23-21-006-blk-1s.jpg',
@@ -106,4 +106,4 @@ function ListImgs(props: {tabIndexStart?: number}) {
   );
 }
 
-export default ListImgs;
+export default React.memo(ListImgs);
