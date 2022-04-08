@@ -1,0 +1,139 @@
+.product-thumb-image {
+  height: 100%;
+  width: 100%;
+  display: block;
+  object-fit: contain;
+  max-width: 275px;
+}
+
+.catalogue-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: center;
+  /* margin: 0 auto; */
+  /* width: 500px; */
+  /* outline: 1px solid red; */
+}
+
+.add-btn {
+  background-color: var(--fontColor);
+  padding: 1rem;
+  width: 100%;
+  margin: 0.5rem;
+  color: white;
+  transition: background-color 200ms ease;
+}
+.add-btn:hover {
+  background-color: var(--logoColor);
+}
+
+.product-thumb-name {
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+.product-thumb-price {
+  font-size: 0.75rem;
+}
+.product-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 'col-1 col-2';
+  justify-items: center;
+  width: clamp(40em, 90%, 70em);
+  margin: 0 auto;
+  gap: 2rem;
+  /* min-height: 40em; */
+}
+
+.product-hero-image {
+  grid-area: col-1;
+}
+
+.product-title {
+  font-size: 2rem;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.product-price {
+  font-size: 1.8rem;
+  margin: 1rem;
+}
+
+.product-description {
+  margin: 2rem 0;
+}
+
+.review-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 1.5rem 0;
+}
+
+.review-count {
+  margin: 0 0.75rem;
+}
+
+.info {
+  grid-area: col-2;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+  align-items: center;
+}
+.detail-container {
+  display: grid;
+  /* justify-content: center; */
+  align-items: center;
+  /* background-color: rgb(240, 240, 240); */
+  min-height: 20rem;
+  margin: 5rem 0;
+  padding: 2rem;
+}
+.product-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 auto;
+  gap: 2rem;
+  width: clamp(30em, 90%, 80em);
+  /* outline: 1px solid red; */
+}
+
+.details {
+
+}
+.details p {
+  margin: 1rem 0;
+}
+
+.detail-title {
+  font-weight: 500;
+}
+
+.recommended-container {
+  margin: 2rem auto;
+  width: clamp(30em, 90%, 80em);
+  /* outline: 1px solid red; */
+}
+
+.recommended-title {
+  text-align: center;
+  font-weight: 500;
+  font-size: 1rem;
+  margin: 2.5rem;
+}
+.recommended-thumbs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  /* padding: 2rem; */
+  /* outline: 1px solid red; */
+}
+@media only screen and (max-width: 40em) {
+  .product-thumb-image {
+    max-width: 325px;
+  }
+}
