@@ -16,7 +16,7 @@ const legalLinks = [
 ]
 
 const Footer = () => {
-  console.log('render footer')
+  // console.log('render footer')
   return (
     <footer className='container'>
       <div className='grid-container'>
