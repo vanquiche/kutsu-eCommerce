@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { ProductType, CartContext } from '../../contexts/CartContext';
 import { v4 } from 'uuid';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import Recommended from './Recommended';
 import './Product.css';
@@ -19,11 +18,8 @@ const ProductPage: React.FC<Props> = ({ product }) => {
 
   return (
     <div>
-
       <div className='product-container'>
-        {/* two columns grid */}
-        {/* image | add to cart */}
-        <LazyLoadImage className='product-hero-image' src={product?.image} />
+        <img className='product-hero-image' src={product?.image} />
 
         <div className='info'>
           <p>IN STOCK</p>
@@ -31,16 +27,25 @@ const ProductPage: React.FC<Props> = ({ product }) => {
             {[...Array(product?.rating)].map(() => (
               <AiFillStar key={v4()} />
             ))}
-            {product?.rating < 5 ? [...Array(5 - product?.rating)].map(() => <AiOutlineStar key={v4()} />) : false}
-            <p className='review-count'>
-              {product?.reviews} reviews
-            </p>
+            {product?.rating < 5
+              ? [...Array(5 - product?.rating)].map(() => (
+                  <AiOutlineStar key={v4()} />
+                ))
+              : false}
+            <p className='review-count'>{product?.reviews} reviews</p>
           </div>
           <p className='product-title'>{(product?.item).toUpperCase()}</p>
           <p className='product-price'>${product?.price}</p>
 
-          <p className='product-description'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident ducimus eveniet earum quas ipsa repellendus, repudiandae nesciunt! Corrupti itaque non quibusdam omnis atque consequatur inventore ab ullam, tempora illum. Maiores?</p>
-          <button onClick={addToCart} className='add-btn' >ADD TO CART</button>
+          <p className='product-description'>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident
+            ducimus eveniet earum quas ipsa repellendus, repudiandae nesciunt!
+            Corrupti itaque non quibusdam omnis atque consequatur inventore ab
+            ullam, tempora illum. Maiores?
+          </p>
+          <button onClick={addToCart} className='add-btn'>
+            ADD TO CART
+          </button>
         </div>
       </div>
 

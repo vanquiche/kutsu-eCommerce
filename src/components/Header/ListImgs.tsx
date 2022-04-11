@@ -92,10 +92,9 @@ function ListImgs(props: {tabIndexStart?: number}) {
               transition={{ delay: (index + 1) * 0.1 }}
               key={uuidv4()}
             >
-              <LazyLoadImage
+              <img
                 alt={'image of shoes'}
                 className='menu-image'
-                effect='blur'
                 src={image}
               />
             </motion.div>

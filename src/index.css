@@ -6,6 +6,7 @@
 }
 * {
   box-sizing: border-box;
+  outline: 1px solid red !important;
 }
 body,html {
   margin: 0;
@@ -35,4 +36,15 @@ button {
   background: none;
   border: none;
   cursor: pointer;
+}
+.add-btn {
+  background-color: var(--fontColor);
+  padding: 1rem;
+  width: 100%;
+  margin: 0.5rem;
+  color: white;
+  transition: background-color 200ms ease;
+}
+.add-btn:hover {
+  background-color: var(--logoColor);
 }

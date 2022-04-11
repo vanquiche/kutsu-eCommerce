@@ -54,6 +54,7 @@ a {
 
 .grid-col-3 {
   grid-area: col-3;
+  display: flex;
 }
 
 .spread {
@@ -175,6 +176,16 @@ a {
   padding: 1rem 0;
   text-align: center;
   background-color: var(--bgColor);
+}
+.cart-btn {
+  display: inline;
+  margin: 0 .25rem;
+}
+.cart-count {
+  display: inline;
+  color: var(--logoColor);
+  font-weight: 500;
+  /* float: left; */
 }
 /* media queries */
 @media only screen and (max-width: 40em) {
