@@ -1,13 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Layout from '../components/Layout/Layout'
+import Catalogue from '../components/Products/Catalogue'
 const Shop = () => {
-  const id = '123'
   return (
   <Layout>
-    <h1>Shop</h1>
-    <Link to={id}>Product</Link>
-
+    {/* <h1>Shop</h1> */}
+    <Catalogue />
   </Layout>
   )
 }

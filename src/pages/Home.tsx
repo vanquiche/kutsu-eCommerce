@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Layout from '../components/Layout/Layout';
-import Product from '../components/Product/Product';
+// import ProductThumb from '../components/Products/ProductThumb';
 const Home = () => {
 
 
