@@ -7,7 +7,9 @@ export interface ProductType {
   reviews: number;
   rating: number;
   price: number;
+  format: string;
   image?: string;
+  stock?: number;
 }
 
 interface CartContextType {

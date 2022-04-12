@@ -22,7 +22,7 @@ const ProductPage: React.FC<Props> = ({ product }) => {
         <img className='product-hero-image' src={product?.image} />
 
         <div className='info'>
-          <p>IN STOCK</p>
+          <p>{product.stock! < 8 ? `ONLY ${product.stock} LEFT` : 'IN STOCK'}</p>
           <div className='review-container'>
             {[...Array(product?.rating)].map(() => (
               <AiFillStar key={v4()} />
@@ -35,7 +35,7 @@ const ProductPage: React.FC<Props> = ({ product }) => {
             <p className='review-count'>{product?.reviews} reviews</p>
           </div>
           <p className='product-title'>{(product?.item).toUpperCase()}</p>
-          <p className='product-price'>${product?.price}</p>
+          <p className='product-price'>${product?.format}</p>
 
           <p className='product-description'>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident

@@ -1,4 +1,6 @@
 import { v4 } from 'uuid';
+import { dinero, toFormat } from 'dinero.js';
+import {USD} from '@dinero.js/currencies';
 
 export let list: any[] = [];
 const productName = [
@@ -47,14 +49,23 @@ const productLink = [
   'https://assets.atmos-tokyo.com/items/S/1202a306-102-1s.jpg',
 ];
 
+function formatPrice(price: number) {
+  const d = dinero({amount: price, currency: USD})
+  const format = toFormat(d, ({amount}) => `${amount}`)
+  return format
+}
+
 function Product(item: string, image: string) {
+  const random = Math.floor(Math.random() * 10000);
   return {
     item,
     image,
     id: v4(),
     reviews: Math.floor(Math.random() * 20),
     rating: Math.floor(Math.random() * 5) + 1,
-    price: parseFloat((Math.random() * 100).toFixed(2)),
+    stock: Math.floor(Math.random() * 20) + 1,
+    price: random,
+    format: formatPrice(random),
     qty: 1,
   };
 }

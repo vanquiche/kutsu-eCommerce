@@ -8,6 +8,7 @@ aside {
   grid-template-columns: 2fr 1.5fr;
   grid-template-areas:
     'overlay cart';
+
 }
 
 .grid-cart {
@@ -19,6 +20,7 @@ aside {
 }
 .cart-wrapper {
   overflow-y: scroll;
+  overflow-x: hidden;
   height: 75%
 }
 .cart-container {
@@ -27,7 +29,6 @@ aside {
   justify-content: space-around;
   margin: 1rem 0;
   height: 100px;
-  /* outline: 1px solid red; */
 }
 .cart-title {
   font-size: 1.1rem;
@@ -53,11 +54,20 @@ aside {
   margin: 0 0.5rem;
   /* text-align: center; */
 }
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+}
+.cart-total span {
+  /* margin-left: 2rem; */
+  font-weight: 600;
+}
 .cart {
   background-color: var(--bgColor);
   box-shadow: -10px 0 10px rgb(102, 102, 102);
   padding: 1rem 2rem;
   overflow-y: scroll;
+
 }
 
 .overlay {
@@ -74,6 +84,11 @@ aside {
   width: 175px;
   /* margin-top: 1rem; */
   /* outline: 1px solid red; */
+}
+
+.checkout-btn {
+  margin: 0;
+  margin-top: 2rem;
 }
 @media only screen and (max-width: 60em) {
   .cart-detail-container {

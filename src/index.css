@@ -6,7 +6,7 @@
 }
 * {
   box-sizing: border-box;
-  outline: 1px solid red !important;
+  /* outline: 1px solid red !important; */
 }
 body,html {
   margin: 0;
@@ -36,6 +36,9 @@ button {
   background: none;
   border: none;
   cursor: pointer;
+}
+button:disabled {
+  opacity: 50%;
 }
 .add-btn {
   background-color: var(--fontColor);

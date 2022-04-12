@@ -1,19 +1,30 @@
-import React, { useContext, useCallback } from 'react';
+import React, { useContext, useMemo } from 'react';
+import { dinero, toFormat, add } from 'dinero.js';
+import { USD } from '@dinero.js/currencies';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { v4 as uuidv4 } from 'uuid';
 import { GrFormClose } from 'react-icons/gr';
-
-import './CartMenu.css';
 import { CartContext } from '../../contexts/CartContext';
 import CartItem from './CartItem';
+import './CartMenu.css';
 
 const CartMenu = (props: { keyRef: string; onClose: () => void }) => {
   const { state } = useContext(CartContext);
+  const initialValue = dinero({ amount: 0, currency: USD });
 
-  const total = state.reduce((acc, product) => {
-    return acc + parseFloat((product.qty * product.price).toFixed(2))
-  }, 0)
+  const cart = useMemo(() => {
+    let items: any[] = [];
+    state.forEach((product) => {
+      const d = dinero({ amount: product.price * product.qty, currency: USD });
+      items.push(d);
+    });
+    return items;
+  }, [state]);
+
+  const total = (addends: any) => addends.reduce(add, initialValue);
+
+  const format = toFormat(total(cart), ({ amount }) => `${amount}`);
 
   return (
     <motion.aside
@@ -32,7 +43,9 @@ const CartMenu = (props: { keyRef: string; onClose: () => void }) => {
             return <CartItem product={product} keyRef={uuidv4()} />;
           })}
         </div>
-        <p>Total: <span>${total}</span></p>
+        <p className='cart-total'>
+          Total: <span>${format}</span>
+        </p>
         <button className='add-btn checkout-btn'>
           <Link to='/checkout'>CHECKOUT</Link>
         </button>

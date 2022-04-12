@@ -11,8 +11,9 @@ const CartItem = (props: { product: ProductType; keyRef: string }) => {
       <img src={props.product.image} className='cart-thumbnail' />
       <div className='cart-detail-container'>
         <p className='cart-name'>{props.product.item.toUpperCase()}</p>
-        <p className='cart-price'>${props.product.price}</p>
+        <p className='cart-price'>${props.product.format}</p>
         <div className='qty-container'>
+          {/* decrement item qty */}
           <button
             onClick={() =>
               dispatch({ type: 'decrement', product: props.product })
@@ -22,6 +23,7 @@ const CartItem = (props: { product: ProductType; keyRef: string }) => {
             <HiMinus size='1.2em' />
           </button>
           {props.product.qty === 0 ? (
+            // delete item from cart
             <button
               onClick={() =>
                 dispatch({ type: 'remove item', product: props.product })
@@ -32,11 +34,12 @@ const CartItem = (props: { product: ProductType; keyRef: string }) => {
           ) : (
             <p>{props.product.qty}</p>
           )}
-
+          {/* add item qty */}
           <button
             onClick={() =>
               dispatch({ type: 'increment', product: props.product })
             }
+            disabled={props.product.qty < props.product.stock! ? false : true}
           >
             <HiPlus size='1.2em' />
           </button>

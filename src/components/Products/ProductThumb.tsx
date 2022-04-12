@@ -29,7 +29,7 @@ const ProductThumb: React.FC<Props> = ({ product, keyRef, segment, handleClick }
         />
       </Link>
       <p className='product-thumb-name'>{product?.item?.toUpperCase()}</p>
-      <p className='product-thumb-price'>${product?.price}</p>
+      <p className='product-thumb-price'>${product?.format}</p>
     </div>
   );
 };
