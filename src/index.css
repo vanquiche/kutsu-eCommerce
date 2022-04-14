@@ -38,16 +38,30 @@ button {
   cursor: pointer;
 }
 button:disabled {
-  opacity: 50%;
+  color: lightgrey;
+}
+.add-btn:disabled {
+  background-color: grey;
+  color: whitesmoke;
+}
+.add-btn:disabled:hover {
+  background-color: grey;
+  cursor: default;
 }
 .add-btn {
   background-color: var(--fontColor);
   padding: 1rem;
   width: 100%;
-  margin: 0.5rem;
+  /* margin: 0.5rem; */
   color: white;
   transition: background-color 200ms ease;
 }
 .add-btn:hover {
   background-color: var(--logoColor);
+}
+.primary-btn {
+  width: auto;
+}
+.link {
+  color: var(--logoColor)
 }

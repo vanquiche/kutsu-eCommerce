@@ -1,10 +1,10 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { motion } from 'framer-motion';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import './Header.css';
 
-const CATEGORIES = ['lifestyle', 'athletic', 'fashion', 'accessories'];
+const CATEGORIES = ['LIFESTYLE', 'ATHLETIC', 'FASHION', 'KUTSUSHTA'];
 
 export const LIFESTYLE_LINKS = [
   'https://assets.atmos-tokyo.com/items/S/dq8768-100-1s.jpg',
@@ -30,8 +30,8 @@ export const ACCESSORY_LINKS = [
   'https://assets.atmos-tokyo.com/items/S/t23-21-006-blk-1s.jpg',
   'https://assets.atmos-tokyo.com/items/S/atm-pa-s012-naw-1s.jpg',
 ];
-function ListImgs(props: {tabIndexStart?: number}) {
-  console.log('render display container');
+function ListImgs(props: { tabIndexStart?: number }) {
+  // console.log('render display container');
   const indexStart = props.tabIndexStart ? props.tabIndexStart : 0;
 
   const [displayImages, setDisplayImages] = useState({
@@ -42,16 +42,16 @@ function ListImgs(props: {tabIndexStart?: number}) {
   const changeDisplay = (selection: string) => {
     if (displayImages.category === selection) return;
     switch (selection) {
-      case 'lifestyle':
+      case 'lifestyle'.toUpperCase():
         setDisplayImages({ category: selection, links: LIFESTYLE_LINKS });
         break;
-      case 'fashion':
+      case 'fashion'.toUpperCase():
         setDisplayImages({ category: selection, links: FASHION_LINKS });
         break;
-      case 'athletic':
+      case 'athletic'.toUpperCase():
         setDisplayImages({ category: selection, links: ATHLETIC_LINKS });
         break;
-      case 'accessories':
+      case 'kutsushta'.toUpperCase():
         setDisplayImages({ category: selection, links: ACCESSORY_LINKS });
         break;
     }
@@ -66,16 +66,14 @@ function ListImgs(props: {tabIndexStart?: number}) {
             <h4>CATEGORIES</h4>
           </li>
           {CATEGORIES.map((link, index) => (
-            <li className='category-link' tabIndex={index + indexStart} key={uuidv4()}>
-              <a
-                href='#'
-                onClick={(e) => {
-                  e.preventDefault();
-                }}
-                onMouseEnter={() => changeDisplay(link)}
-              >
+            <li
+              className='category-link'
+              tabIndex={index + indexStart}
+              key={uuidv4()}
+            >
+              <Link to='/shop' onMouseEnter={() => changeDisplay(link)}>
                 {link}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -92,11 +90,7 @@ function ListImgs(props: {tabIndexStart?: number}) {
               transition={{ delay: (index + 1) * 0.1 }}
               key={uuidv4()}
             >
-              <img
-                alt={'image of shoes'}
-                className='menu-image'
-                src={image}
-              />
+              <img alt={'image of shoes'} className='menu-image' src={image} />
             </motion.div>
           ))}
         </div>
