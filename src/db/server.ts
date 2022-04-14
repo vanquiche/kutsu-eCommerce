@@ -1,6 +1,6 @@
 import { v4 } from 'uuid';
-import { dinero, toFormat } from 'dinero.js';
-import {USD} from '@dinero.js/currencies';
+import { dinero, toUnit } from 'dinero.js';
+import { USD } from '@dinero.js/currencies';
 
 export let list: any[] = [];
 const productName = [
@@ -50,9 +50,9 @@ const productLink = [
 ];
 
 function formatPrice(price: number) {
-  const d = dinero({amount: price, currency: USD})
-  const format = toFormat(d, ({amount}) => `${amount}`)
-  return format
+  const d = dinero({ amount: price, currency: USD });
+  const format = toUnit(d).toFixed(2);
+  return format;
 }
 
 function Product(item: string, image: string) {
@@ -76,4 +76,3 @@ function Product(item: string, image: string) {
     list.push(item);
   }
 })();
-
