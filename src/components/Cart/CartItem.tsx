@@ -18,22 +18,11 @@ const CartItem = (props: { product: ProductType; keyRef: string }) => {
             onClick={() =>
               dispatch({ type: 'decrement', product: props.product })
             }
-            disabled={props.product.qty === 0 ? true : false}
+            disabled={props.product.qty === 1 ? true : false}
           >
             <HiMinus size='1.2em' />
           </button>
-          {props.product.qty === 0 ? (
-            // delete item from cart
-            <button
-              onClick={() =>
-                dispatch({ type: 'remove item', product: props.product })
-              }
-            >
-              <HiTrash size='1.2em' color='tomato' />
-            </button>
-          ) : (
-            <p>{props.product.qty}</p>
-          )}
+          <p>{props.product.qty}</p>
           {/* add item qty */}
           <button
             onClick={() =>
@@ -42,6 +31,13 @@ const CartItem = (props: { product: ProductType; keyRef: string }) => {
             disabled={props.product.qty < props.product.stock! ? false : true}
           >
             <HiPlus size='1.2em' />
+          </button>
+          <button
+            onClick={() =>
+              dispatch({ type: 'remove item', product: props.product })
+            }
+          >
+            <HiTrash size='1.2em' color='tomato' className='trash-icon' />
           </button>
         </div>
       </div>
