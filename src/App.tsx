@@ -2,6 +2,7 @@ import React, { useReducer, useEffect } from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
+import CheckoutPage from './pages/CheckoutPage'
 import ShopItem from './pages/ShopItem';
 import './App.css';
 
@@ -19,9 +20,12 @@ function App() {
         <Route path='/'>
           <Route index element={<Home />} />
         </Route>
-        <Route path='shop/'>
+        <Route path='shop'>
           <Route index element={<Shop />} />
           <Route path=':id' element={<ShopItem />} />
+        </Route>
+        <Route path='checkout'>
+          <Route index element={<CheckoutPage />} />
         </Route>
       </Routes>
     </CartContext.Provider>
