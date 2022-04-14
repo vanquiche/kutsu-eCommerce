@@ -127,6 +127,9 @@
   /* padding: 2rem; */
   /* outline: 1px solid red; */
 }
+.shop-link {
+  margin: 0 3rem;
+}
 @media only screen and (max-width: 40em) {
   .product-thumb-image {
     max-width: 325px;

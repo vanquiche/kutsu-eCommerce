@@ -1,4 +1,5 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext, useEffect, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ProductType, CartContext } from '../../contexts/CartContext';
 import { v4 } from 'uuid';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
@@ -10,19 +11,47 @@ interface Props {
 }
 
 const ProductPage: React.FC<Props> = ({ product }) => {
-  const { dispatch } = useContext(CartContext);
+  const { state, dispatch } = useContext(CartContext);
+  const [inStock, setInStock] = useState(true);
+
+  // return the current product being viewed
+  const selectedProduct = useMemo(() => {
+    return state.filter((item) => item.id === product.id)
+  }, [state]);
+
+  // if length equals 0 then product has not
+  // been added to cart
+  const qtyInCart = selectedProduct.length === 0 ? 0 : selectedProduct[0].qty!;
+
+  const navigate = useNavigate();
 
   const addToCart = () => {
     dispatch({ type: 'add item', product: product });
   };
 
+  useEffect(() => {
+    if (qtyInCart >= product.stock!) {
+      setInStock(false);
+    } else if (qtyInCart < product.stock!) {
+      setInStock(true);
+    }
+  }, [qtyInCart]);
+
   return (
     <div>
+      <p className='shop-link'>
+        <button className='link' onClick={() => navigate(-1)}>
+          BACK
+        </button>{' '}
+        / {product.item.toUpperCase()}
+      </p>
       <div className='product-container'>
         <img className='product-hero-image' src={product?.image} />
 
         <div className='info'>
-          <p>{product.stock! < 8 ? `ONLY ${product.stock} LEFT` : 'IN STOCK'}</p>
+          <p>
+            {product.stock! < 8 ? `ONLY ${product.stock} LEFT` : 'IN STOCK'}
+          </p>
           <div className='review-container'>
             {[...Array(product?.rating)].map(() => (
               <AiFillStar key={v4()} />
@@ -43,8 +72,12 @@ const ProductPage: React.FC<Props> = ({ product }) => {
             Corrupti itaque non quibusdam omnis atque consequatur inventore ab
             ullam, tempora illum. Maiores?
           </p>
-          <button onClick={addToCart} className='add-btn'>
-            ADD TO CART
+          <button
+            onClick={addToCart}
+            className='add-btn'
+            disabled={!inStock ? true : false}
+          >
+            {inStock ? 'ADD TO CART' : 'OUT OF STOCK'}
           </button>
         </div>
       </div>

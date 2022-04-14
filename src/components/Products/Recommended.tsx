@@ -25,7 +25,7 @@ const Recommended = () => {
             product={product}
             keyRef={v4()}
             segment={`/shop/${product.id}`}
-            handleClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
+            handleClick={() => window.scrollTo(0, 0)}
           />
         ))}
       </div>
