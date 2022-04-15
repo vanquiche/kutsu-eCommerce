@@ -7,7 +7,8 @@ import ShopItem from './pages/ShopItem';
 import PageNotFound from './pages/404page';
 import './App.css';
 
-import { CartContext, reducer } from './contexts/CartContext';
+import { CartContext } from './contexts/CartContext';
+import {reducer} from './reducer/reducer'
 
 function App() {
   const userCart = JSON.parse(localStorage.getItem('cart') || '[]');

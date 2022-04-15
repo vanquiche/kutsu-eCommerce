@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ProductType, CartContext } from '../../contexts/CartContext';
+import { CartContext } from '../../contexts/CartContext';
+import { ProductType } from '../../types/Types';
 import { v4 } from 'uuid';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import Recommended from './Recommended';

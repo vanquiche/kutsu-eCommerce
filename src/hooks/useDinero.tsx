@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { ProductType } from '../contexts/CartContext';
+import { ProductType } from '../types/Types';
 import { dinero, add, subtract } from 'dinero.js';
 import { USD } from '@dinero.js/currencies';
 

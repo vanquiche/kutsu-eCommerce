@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import { ProductType } from '../../contexts/CartContext';
+import { ProductType } from '../../types/Types';
 import './Product.css';
 interface Props {
   product?: ProductType;

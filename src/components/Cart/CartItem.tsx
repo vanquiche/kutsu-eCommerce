@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import { CartContext, ProductType } from '../../contexts/CartContext';
+import { CartContext } from '../../contexts/CartContext';
+import { ProductType } from '../../types/Types';
 import { HiMinus, HiPlus, HiTrash } from 'react-icons/hi';
 import './CartMenu.css';
 
