@@ -59,7 +59,7 @@ const Footer = () => {
             “sup”.
           </p>
           <BsFillChatDotsFill size='1.3em' className='contact-icon'/>
-          <a href='#' onClick={(e) => e.preventDefault()} style={{'color': 'blue'}}>let's chat</a>
+          <span>let's chat</span>
         </section>
 
         <section className='grid-social'>

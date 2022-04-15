@@ -63,7 +63,7 @@ function ListImgs(props: { tabIndexStart?: number }) {
         {/* category links */}
         <ul className='category-link-container'>
           <li className='category-link'>
-            <h4>CATEGORIES</h4>
+            <p style={{fontWeight: 500}}>CATEGORIES</p>
           </li>
           {CATEGORIES.map((link, index) => (
             <li

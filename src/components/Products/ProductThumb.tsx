@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import { ProductType } from '../../contexts/CartContext';
 import './Product.css';
 interface Props {
@@ -22,7 +23,7 @@ const ProductThumb: React.FC<Props> = ({ product, keyRef, segment, handleClick }
         onClick={handleClick}
       >
         <LazyLoadImage
-          alt='placeholder image'
+          alt=''
           src={product?.image}
           className='product-thumb-image'
           effect='blur'

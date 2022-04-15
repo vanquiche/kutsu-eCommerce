@@ -13,6 +13,7 @@ section p {
   /* background-color: white; */
   /* position: absolute;
   bottom: 0; */
+  font-family: var(--bodyFont);
   margin-top: 5rem;
   width: 100%;
   border-top: .2rem solid rgb(214, 214, 214);

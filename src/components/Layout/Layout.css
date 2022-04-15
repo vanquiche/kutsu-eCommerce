@@ -1,4 +1,5 @@
 .layout-body {
   margin-top: 2.5rem;
+  font-family: var(--bodyFont);
   /* margin: 1rem 2rem; */
 }

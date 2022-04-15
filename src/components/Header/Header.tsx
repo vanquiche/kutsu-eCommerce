@@ -40,7 +40,7 @@ const Header = () => {
     document.body.style.overflowY = 'hidden';
   };
   const closeCartMenu = () => {
-    document.body.style.overflowY = 'scroll';
+    document.body.style.overflowY = '';
     setShowCartMenu(false);
   };
 

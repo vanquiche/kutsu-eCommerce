@@ -1,9 +1,10 @@
+
 .product-thumb-image {
   height: 100%;
   width: 100%;
   display: block;
   object-fit: contain;
-  max-width: 275px;
+  max-width: 300px;
 }
 
 .catalogue-container {
@@ -11,14 +12,12 @@
   flex-wrap: wrap;
   gap: 2.5rem;
   justify-content: center;
-  /* margin: 0 auto; */
-  /* width: 500px; */
-  /* outline: 1px solid red; */
+  margin: 0 auto;
 }
 
 .product-thumb-name {
-  font-weight: 500;
   font-size: 0.85rem;
+  font-weight: 500;
 }
 
 .product-thumb-price {
@@ -32,7 +31,6 @@
   width: clamp(20em, 90%, 70em);
   margin: 0 auto;
   gap: 2rem;
-  /* min-height: 40em; */
 }
 
 .product-hero-image {
@@ -41,7 +39,6 @@
   width: 100%;
   display: block;
   object-fit: contain;
-  /* max-width: 300px; */
 }
 
 .product-title {
@@ -74,14 +71,11 @@
   grid-area: col-2;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-around; */
   align-items: center;
 }
 .detail-container {
   display: grid;
-  /* justify-content: center; */
   align-items: center;
-  /* background-color: rgb(240, 240, 240); */
   min-height: 20rem;
   margin: 5rem 0;
   padding: 2rem;
@@ -92,7 +86,6 @@
   margin: 0 auto;
   gap: 2rem;
   width: clamp(20em, 90%, 80em);
-  /* outline: 1px solid red; */
 }
 
 .details {
@@ -124,8 +117,6 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  /* padding: 2rem; */
-  /* outline: 1px solid red; */
 }
 .shop-link {
   margin: 0 3rem;

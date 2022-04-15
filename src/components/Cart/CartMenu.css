@@ -7,6 +7,7 @@ aside {
   grid-template-columns: 2fr 1.5fr;
   grid-template-areas:
   'overlay cart';
+  font-family: var(--bodyFont);
 }
 
 .grid-cart {
@@ -69,7 +70,7 @@ aside {
   justify-content: space-between;
 }
 .cart-total span {
-  
+
 }
 
 .overlay {

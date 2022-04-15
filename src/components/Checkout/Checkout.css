@@ -1,5 +1,6 @@
 .checkout-wrapper {
   padding: 2rem 3rem;
+  font-family: var(--bodyFont);
 }
 
 .checkout-title {
