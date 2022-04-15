@@ -1,9 +1,10 @@
-import React, { useReducer, useEffect } from 'react';
-import { Routes, Route, Outlet } from 'react-router-dom';
+import { useReducer } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
 import CheckoutPage from './pages/CheckoutPage'
 import ShopItem from './pages/ShopItem';
+import PageNotFound from './pages/404page';
 import './App.css';
 
 import { CartContext, reducer } from './contexts/CartContext';
@@ -17,6 +18,7 @@ function App() {
   return (
     <CartContext.Provider value={{ state, dispatch }}>
       <Routes>
+        <Route path='*' element={<PageNotFound />}/>
         <Route path='/'>
           <Route index element={<Home />} />
         </Route>
