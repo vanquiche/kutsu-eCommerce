@@ -1,6 +1,6 @@
 import { useReducer } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
+import HomePage from './pages/HomePage';
 import Shop from './pages/Shop';
 import CheckoutPage from './pages/CheckoutPage'
 import ShopItem from './pages/ShopItem';
@@ -21,7 +21,7 @@ function App() {
       <Routes>
         <Route path='*' element={<PageNotFound />}/>
         <Route path='/'>
-          <Route index element={<Home />} />
+          <Route index element={<HomePage />} />
         </Route>
         <Route path='shop'>
           <Route index element={<Shop />} />

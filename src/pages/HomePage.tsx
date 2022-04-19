@@ -1,16 +1,14 @@
 import { Link } from 'react-router-dom';
+import Home from '../components/Home/Home';
 import Layout from '../components/Layout/Layout';
 // import ProductThumb from '../components/Products/ProductThumb';
-const Home = () => {
+const HomePage = () => {
 
-
-  return (
+ return (
     <Layout>
-      <h1>Home</h1>
-    {/* <Product /> */}
-    <Link to='/shop'>Shop</Link>
+    <Home />
     </Layout>
   );
 };
 
-export default Home;
+export default HomePage;
