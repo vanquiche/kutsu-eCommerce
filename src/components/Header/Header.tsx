@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Link, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
@@ -7,6 +7,7 @@ import SubMenu from './SubMenu';
 import MobileDropdown from './MobileDropdown';
 import CartMenu from '../Cart/CartMenu';
 import CartBtn from './CartBtn';
+import { ShowCartContext } from '../../contexts/ShowCartContext';
 import './Header.css';
 
 const navlinks = [
@@ -25,7 +26,7 @@ const navlinks = [
 ];
 
 const Header = () => {
-  const [showCartMenu, setShowCartMenu] = useState(false);
+  const {showCart, setShowCart} = useContext(ShowCartContext);
   const [showDesktopMenu, setShowDesktopMenu] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
@@ -45,13 +46,13 @@ const Header = () => {
   };
 
   const openCartMenu = () => {
-    setShowCartMenu(true);
+    setShowCart(true);
     disableScroll();
   };
 
   const closeCartMenu = () => {
     enableScroll();
-    setShowCartMenu(false);
+    setShowCart(false);
   };
 
   const toggleMobileMenu = () => {
@@ -121,7 +122,7 @@ const Header = () => {
           />
         )}
         {showMobileMenu && <MobileDropdown links={navlinks} keyRef='mobile' />}
-        {showCartMenu && <CartMenu keyRef='cart' onClose={closeCartMenu} />}
+        {showCart && <CartMenu keyRef='cart' onClose={closeCartMenu} />}
       </AnimatePresence>
     </header>
   );

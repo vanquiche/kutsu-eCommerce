@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../../contexts/CartContext';
+import { ShowCartContext } from '../../contexts/ShowCartContext';
 import { ProductType } from '../../types/Types';
 import { v4 } from 'uuid';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
@@ -13,6 +14,7 @@ interface Props {
 }
 
 const ProductPage: React.FC<Props> = ({ product }) => {
+  const { setShowCart } = useContext(ShowCartContext);
   const { state, dispatch } = useContext(CartContext);
   const [loading, setLoading] = useState(false);
   const [inStock, setInStock] = useState(true);
@@ -33,7 +35,8 @@ const ProductPage: React.FC<Props> = ({ product }) => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 1500);
+      setShowCart(true);
+    }, 500);
   };
 
   const addToCart = () => {
@@ -90,11 +93,13 @@ const ProductPage: React.FC<Props> = ({ product }) => {
             className='add-btn'
             disabled={!inStock || loading ? true : false}
           >
-            {inStock && !loading
-              ? 'ADD TO CART'
-              : loading
-              ? (<LoadingIcon />)
-              : 'OUT OF STOCK'}
+            {inStock && !loading ? (
+              'ADD TO CART'
+            ) : loading ? (
+              <LoadingIcon />
+            ) : (
+              'OUT OF STOCK'
+            )}
           </button>
         </div>
       </div>
