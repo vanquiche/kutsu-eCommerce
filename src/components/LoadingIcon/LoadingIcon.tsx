@@ -7,7 +7,7 @@ const animateVariant = {
   animate: { scale: 2.5 },
 };
 
-const DOTSIZE = '.8rem';
+const DOTSIZE = '12.8px';
 
 const LoadingIcon = () => {
   return (
