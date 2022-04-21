@@ -1,37 +1,61 @@
 import React, { useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { motion } from 'framer-motion';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import PromoLink from './PromoLink';
+import {
+  animateSlideRight,
+  animateSlideDown,
+  animateSlideLeft,
+  animateSlideUp,
+} from './animationVariant';
 
 interface Props {
   inView: boolean;
   image: string;
-  variant: any;
   key?: string;
   imgClass?: string;
   containerClass?: string;
   link: string;
   linkText?: string;
+  animationDirection?: string;
 }
 
 const CollageItem: React.FC<Props> = ({
   inView,
   image,
-  variant,
   key,
   imgClass,
   containerClass,
   link,
-  linkText
+  linkText,
+  animationDirection,
 }) => {
+  const isMobile = useMediaQuery({ maxWidth: 500 });
   const [showBtn, setShowBtn] = useState(false);
+
+  const getVariant = (direction: string | undefined = 'right') => {
+    switch (direction) {
+      case 'left':
+        return animateSlideLeft;
+      case 'right':
+        return animateSlideRight;
+      case 'up':
+        return animateSlideUp;
+      case 'down':
+        return animateSlideDown;
+    }
+  };
+
+
+
   return (
     <motion.div
       style={{ position: 'relative' }}
       className={`image-container ${containerClass}`}
-      initial={'hidden'}
+      initial='hidden'
       animate={inView ? 'visible' : 'hidden'}
-      variants={variant}
+      variants={!isMobile ? getVariant(animationDirection) : undefined}
       key={key}
       onMouseEnter={() => setShowBtn(true)}
       onMouseLeave={() => setShowBtn(false)}

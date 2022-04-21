@@ -6,7 +6,8 @@ import Collage from './Collage';
 import Promo from './Promo';
 import './Home.css';
 
-import promo9 from '../../images/promo-9.jpg'
+import promo9 from '../../images/promo-9.jpg';
+import Gallery from './Gallery';
 
 const getQuote = () => {
   const quotes = [
@@ -26,10 +27,19 @@ const getQuote = () => {
 };
 
 const Home = () => {
-
   const quote = getQuote();
   return (
     <div className='home-container'>
+      <div className='home-image'>
+        <p className='home-image-overlay-text home-overlay-position-right'>
+          paradise
+        </p>
+        <p className='home-image-overlay-text home-overlay-position-left'>
+          sneaker
+        </p>
+        <img src='images/promo-8.jpg' className='promo-image' />
+      </div>
+
       <div className='video-wrapper'>
         <HoverVideoPlayer videoSrc={Video} className='video' />
         <motion.h5
@@ -42,6 +52,7 @@ const Home = () => {
       </div>
       <Promo image={promo9} />
       <Collage />
+      <Gallery />
     </div>
   );
 };

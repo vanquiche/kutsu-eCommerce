@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
@@ -25,7 +26,8 @@ const sneakers = [
 ];
 
 const Promo: React.FC<Props> = ({ image }) => {
-  const [display, setDisplay] = useState('')
+  const isMobile = useMediaQuery({ maxWidth: 500 })
+  const [display, setDisplay] = useState('');
   const { ref, inView } = useInView({
     threshold: 1,
     triggerOnce: true,
@@ -40,21 +42,17 @@ const Promo: React.FC<Props> = ({ image }) => {
               className='box-text cursor-none'
               initial='hidden'
               animate={inView ? 'visible' : 'hidden'}
-              variants={animateSlideUp}
-              transition={{ delay: i * 0.2, ease: 'easeOut' }}
+              variants={!isMobile ? animateSlideUp : undefined}
+              transition={{ delay: i * 0.1, ease: 'easeOut' }}
               key={x}
             >
               {x}
             </motion.li>
           ))}
         </ul>
-        <div ref={ref}></div>
       </div>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={inView ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ delay: 0.5 }}
-        style={{position: 'relative'}}
+      <div
+        style={{ position: 'relative' }}
         onMouseEnter={() => setDisplay('show-btn')}
         onMouseLeave={() => setDisplay('')}
       >
@@ -63,8 +61,11 @@ const Promo: React.FC<Props> = ({ image }) => {
           className='promo-image cursor-none'
           effect='blur'
         />
-        <Link className={`promo-link ${display}`} to='shop' >SHOP NOW</Link>
-      </motion.div>
+        <Link className={`promo-link ${display}`} to='shop'>
+          SHOP NOW
+        </Link>
+      </div>
+      <div ref={ref}></div>
     </div>
   );
 };
