@@ -27,6 +27,7 @@ body,html {
   color: var(--fontColor);
   background-color: var(--bgColor);
   line-height: 1.4rem;
+  /* background-color: black; */
 }
 li:focus {
   outline: none;
@@ -58,6 +59,7 @@ button:disabled {
 }
 .add-btn {
   background-color: var(--fontColor);
+  position: relative;
   padding: 1rem;
   width: 100%;
   /* margin: 0.5rem; */

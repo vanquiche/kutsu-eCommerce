@@ -50,6 +50,7 @@
 .product-price {
   font-size: 1.8rem;
   margin: 1rem;
+  text-align: center;
 }
 
 .product-description {
@@ -138,5 +139,9 @@
   .recommended-thumbs {
     flex-direction: column;
     align-items: center;
+  }
+  .detail-container {
+    padding: 1rem;
+    margin-top: 3rem;
   }
 }

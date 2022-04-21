@@ -6,6 +6,7 @@ import { v4 } from 'uuid';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import Recommended from './Recommended';
 import './Product.css';
+import LoadingIcon from '../LoadingIcon/LoadingIcon';
 
 interface Props {
   product: ProductType;
@@ -13,11 +14,12 @@ interface Props {
 
 const ProductPage: React.FC<Props> = ({ product }) => {
   const { state, dispatch } = useContext(CartContext);
+  const [loading, setLoading] = useState(false);
   const [inStock, setInStock] = useState(true);
 
   // return the current product being viewed
   const selectedProduct = useMemo(() => {
-    return state.filter((item) => item.id === product.id)
+    return state.filter((item) => item.id === product.id);
   }, [state]);
 
   // if length equals 0 then product has not
@@ -26,8 +28,17 @@ const ProductPage: React.FC<Props> = ({ product }) => {
 
   const navigate = useNavigate();
 
+  // function to mock a server request
+  const fetchServer = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+  };
+
   const addToCart = () => {
     dispatch({ type: 'add item', product: product });
+    fetchServer();
   };
 
   useEffect(() => {
@@ -73,12 +84,17 @@ const ProductPage: React.FC<Props> = ({ product }) => {
             Corrupti itaque non quibusdam omnis atque consequatur inventore ab
             ullam, tempora illum. Maiores?
           </p>
+
           <button
             onClick={addToCart}
             className='add-btn'
-            disabled={!inStock ? true : false}
+            disabled={!inStock || loading ? true : false}
           >
-            {inStock ? 'ADD TO CART' : 'OUT OF STOCK'}
+            {inStock && !loading
+              ? 'ADD TO CART'
+              : loading
+              ? (<LoadingIcon />)
+              : 'OUT OF STOCK'}
           </button>
         </div>
       </div>

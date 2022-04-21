@@ -110,5 +110,9 @@
     grid-template-columns: 2fr 1fr 1fr;
     grid-template-areas:
       'col-2 col-3 col-4';
+
+  }
+  .checkout-wrapper {
+    padding: 2rem;
   }
 }
