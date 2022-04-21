@@ -13,7 +13,6 @@ import {
 interface Props {
   inView: boolean;
   image: string;
-  key?: string;
   imgClass?: string;
   containerClass?: string;
   link: string;
@@ -24,7 +23,6 @@ interface Props {
 const CollageItem: React.FC<Props> = ({
   inView,
   image,
-  key,
   imgClass,
   containerClass,
   link,
@@ -56,7 +54,6 @@ const CollageItem: React.FC<Props> = ({
       initial='hidden'
       animate={inView ? 'visible' : 'hidden'}
       variants={!isMobile ? getVariant(animationDirection) : undefined}
-      key={key}
       onMouseEnter={() => setShowBtn(true)}
       onMouseLeave={() => setShowBtn(false)}
     >

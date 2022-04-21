@@ -29,7 +29,6 @@ const Collage = () => {
           imgClass='promo-image'
           containerClass='grid-sec-1'
           link='shop'
-          key='promo1'
         />
 
         <CollageItem
@@ -39,7 +38,6 @@ const Collage = () => {
           imgClass='promo-image'
           containerClass='grid-sec-2'
           link='shop'
-          key='promo2'
         />
 
         <CollageItem
@@ -49,7 +47,6 @@ const Collage = () => {
           imgClass='promo-image'
           containerClass='grid-sec-3'
           link='shop'
-          key='promo3'
         />
 
         <CollageItem
@@ -59,7 +56,6 @@ const Collage = () => {
           imgClass='promo-image'
           containerClass='grid-sec-4'
           link='shop'
-          key='promo4'
         />
       </div>
       <div className='collage-animate-ref' ref={ref}>
