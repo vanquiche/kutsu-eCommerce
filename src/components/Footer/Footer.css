@@ -10,24 +10,18 @@ section p {
 }
 
 .container {
-  /* background-color: white; */
-  /* position: absolute;
-  bottom: 0; */
   font-family: var(--bodyFont);
   margin-top: 5rem;
   width: 100%;
   border-top: .2rem solid rgb(214, 214, 214);
-  /* outline: 1px solid red; */
 }
 
 .grid-container {
-  /* padding: 2rem; */
   margin: 2rem auto;
   display: grid;
   gap: 1.5rem;
   column-gap: 1.8rem;
   grid-template-columns: repeat(2, fit-content(1fr));
-  /* grid-template-rows: repeat(4, auto); */
   grid-template-areas:
     'newsletter newsletter'
     'contact chat'
@@ -36,15 +30,12 @@ section p {
   ;
   justify-items: center;
   width: clamp(10rem, 80%, 50rem);
-  /* outline: 1px solid red; */
 }
 
 /* grid location classes */
 
 .grid-newsletter {
   grid-area: newsletter;
-  /* width: 100%; */
-  /* outline: 1px solid red; */
 }
 .grid-contact {
   grid-area: contact;
@@ -53,7 +44,6 @@ section p {
   grid-area: social;
 }
 .grid-copyright {
-  /* outline: 1px solid red; */
   grid-area: copyright;
 }
 
@@ -68,7 +58,6 @@ section p {
   width: 90%;
   height: 2rem;
   padding: 0.2rem 0.4rem;
-  /* display: block; */
   border: 1px solid grey;
   border-right: 0;
 
@@ -107,7 +96,6 @@ section p {
 .social-container {
   display: flex;
   justify-content: space-evenly;
-  /* width: 100%; */
 }
 .social-icon {
   color: var(--fontColor);

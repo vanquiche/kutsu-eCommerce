@@ -5,7 +5,6 @@
   font-size: 1rem;
   position: absolute;
   min-height: 100vh;
-  /* font-family: var(--bodyFont); */
 }
 
 .about-container h5 {
@@ -25,7 +24,6 @@
 }
 
 .about-container a {
-  /* color: var(--logoColor) */
   color: lightgreen;
   font-weight: 600;
 }
