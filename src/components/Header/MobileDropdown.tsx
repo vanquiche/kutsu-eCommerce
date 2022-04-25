@@ -9,7 +9,6 @@ interface NavLink {
 }
 
 const MobileDropdown = (props: { links: NavLink[]; keyRef: string }) => {
-  // console.log('render mobile dropdown')
   return (
     <motion.ul
       key={props.keyRef}

@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import ListImgs from './ListImgs';
 
 const SubMenu = (props: { onLeave?: () => void; keyRef: string, indexStart: number }) => {
-  // console.log('render sub menu ');
   return (
     <motion.div
       key={props.keyRef}

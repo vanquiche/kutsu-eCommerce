@@ -5,7 +5,7 @@ import ProductPage from '../components/Products/ProductPage';
 
 const ShopItem = () => {
   const location = useLocation();
-  const { product }: any = location.state; // console.log(product);
+  const { product }: any = location.state;
 
   useEffect(() => {
     window.scrollTo(0, 0);

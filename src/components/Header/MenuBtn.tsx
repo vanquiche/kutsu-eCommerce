@@ -10,7 +10,6 @@ const styles = {
 }
 
 const MenuBtn = (props: { onClick: () => void; state: boolean }) => {
-  // console.log('render menu button')
   return (
     <button onClick={props.onClick} style={styles}>
       {props.state ? (
