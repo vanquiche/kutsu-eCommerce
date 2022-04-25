@@ -1,5 +1,7 @@
 This project started off as an experiment in building a simple pattern in managing the global state of an app, and turned into an eCommerce mock site to represent a real world application. My goals for this project were simple: create a site that is fast and has a state that is accessible across the app, while also creating a great user-experience and a polished design.
 
+check it out [here](https://kutsu-shop.netlify.app)
+
 ## Tech Stack
 
 ### Framework
