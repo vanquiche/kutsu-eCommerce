@@ -36,7 +36,7 @@ const ProductPage: React.FC<Props> = ({ product }) => {
     setTimeout(() => {
       setLoading(false);
       setShowCart(true);
-    }, 500);
+    }, 1000);
   };
 
   const addToCart = () => {

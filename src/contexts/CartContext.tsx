@@ -6,10 +6,8 @@ interface CartContextType {
   dispatch: React.Dispatch<Action>;
 }
 
-export const initialState = [];
-
 export const CartContext = createContext<CartContextType>({
-  state: initialState,
+  state: [],
   dispatch: () => {},
 });
 

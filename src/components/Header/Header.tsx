@@ -20,13 +20,13 @@ const navlinks = [
     path: '/workshop',
   },
   {
-    text: 'SALE',
-    path: '/sale',
+    text: 'ABOUT',
+    path: '/about',
   },
 ];
 
 const Header = () => {
-  const {showCart, setShowCart} = useContext(ShowCartContext);
+  const { showCart, setShowCart } = useContext(ShowCartContext);
   const [showDesktopMenu, setShowDesktopMenu] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
@@ -69,8 +69,10 @@ const Header = () => {
   // closes menu without reseting scroll behavior
   // useEffect in place to reset when location changes
   useEffect(() => {
-    enableScroll();
     window.scrollTo(0, 0);
+    return () => {
+      enableScroll();
+    };
   }, [location]);
 
   return (

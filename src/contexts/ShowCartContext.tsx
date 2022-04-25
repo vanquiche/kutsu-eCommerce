@@ -1,11 +1,11 @@
-import React, {createContext} from 'react'
+import React, { createContext } from 'react';
 
 interface ShowCartType {
-  showCart: boolean,
-  setShowCart: React.Dispatch<boolean>
+  showCart: boolean;
+  setShowCart: React.Dispatch<boolean>;
 }
 
 export const ShowCartContext = createContext<ShowCartType>({
   showCart: false,
-  setShowCart: () => {}
-})
+  setShowCart: () => {},
+});

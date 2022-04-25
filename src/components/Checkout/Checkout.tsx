@@ -67,7 +67,7 @@ const Checkout = () => {
 
   return (
     <div className='checkout-wrapper'>
-      <Link to='/'>
+      <Link to='/shop'>
         <button className='add-btn primary-btn'>CONTINUE SHOPPING</button>
       </Link>
 

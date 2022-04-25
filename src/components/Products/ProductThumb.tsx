@@ -10,6 +10,12 @@ interface Props {
   handleClick?: () => void;
 }
 
+const PlaceHolderImg = () => {
+  return (
+    <div style={{width: '200px', height: '200px', backgroundColor: 'white'}}></div>
+  )
+}
+
 const ProductThumb: React.FC<Props> = ({ product, keyRef, segment, handleClick }) => {
 
   return (
@@ -26,6 +32,7 @@ const ProductThumb: React.FC<Props> = ({ product, keyRef, segment, handleClick }
           src={product?.image}
           className='product-thumb-image'
           effect='blur'
+          placeholder={<PlaceHolderImg />}
         />
       </Link>
       <p className='product-thumb-name'>{product?.item?.toUpperCase()}</p>

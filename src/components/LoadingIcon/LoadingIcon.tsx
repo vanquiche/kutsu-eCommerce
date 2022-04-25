@@ -3,8 +3,9 @@ import { BsDot } from 'react-icons/bs';
 import './LoadingIcon.css';
 
 const animateVariant = {
-  initial: { scale: 1 },
-  animate: { scale: 2.5 },
+  initial: { opacity: 0.2 },
+  animate: { opacity: 1 },
+
 };
 
 const DOTSIZE = '12.8px';

@@ -31,12 +31,6 @@ const Home = () => {
   return (
     <div className='home-container'>
       <div className='home-image'>
-        <p className='home-image-overlay-text home-overlay-position-right'>
-          paradise
-        </p>
-        <p className='home-image-overlay-text home-overlay-position-left'>
-          sneaker
-        </p>
         <img src='images/promo-8.jpg' className='promo-image' />
       </div>
 
