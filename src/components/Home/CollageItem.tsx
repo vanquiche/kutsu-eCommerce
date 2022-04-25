@@ -45,8 +45,6 @@ const CollageItem: React.FC<Props> = ({
     }
   };
 
-
-
   return (
     <motion.div
       style={{ position: 'relative' }}
@@ -57,7 +55,7 @@ const CollageItem: React.FC<Props> = ({
       onMouseEnter={() => setShowBtn(true)}
       onMouseLeave={() => setShowBtn(false)}
     >
-      <LazyLoadImage src={image} className={imgClass} />
+      <img src={image} className={imgClass} loading='lazy' />
       <PromoLink path={link} text={linkText || 'SHOP NOW'} display={showBtn} />
     </motion.div>
   );
