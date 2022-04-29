@@ -10,6 +10,6 @@ export interface ProductType {
   stock?: number;
 }
 export type Action = {
-  type: 'increment' | 'decrement' | 'add item' | 'remove item';
+  type: 'increment' | 'decrement' | 'add item' | 'remove item' | 'delete cart';
   product?: ProductType;
 };

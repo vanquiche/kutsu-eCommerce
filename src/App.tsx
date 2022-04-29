@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import Shop from './pages/Shop';
 import AboutPage from './pages/AboutPage';
 import CheckoutPage from './pages/CheckoutPage';
+import ConfirmationPage from './pages/ConfirmationPage';
 import ShopItem from './pages/ShopItem';
 import PageNotFound from './pages/404page';
 import './App.css';
@@ -28,6 +29,7 @@ function App() {
         </Route>
         <Route path='checkout'>
           <Route index element={<CheckoutPage />} />
+          <Route path=':id' element={<ConfirmationPage />} />
         </Route>
         <Route path='about'>
           <Route index element={<AboutPage />} />

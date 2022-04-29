@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import dog from '../../images/dog-404.png';
 import './404.css';
 
@@ -11,7 +12,7 @@ const FourOFour = () => {
         <p className='page-text'>It looks like this page got lost. The link below will help you find your way back.</p>
       </div>
         <Link to='/' className='page-link'>Kutsu</Link>
-      <img src={dog} className='page-image' />
+      <LazyLoadImage src={dog} className='page-image' effect='blur'/>
     </div>
   );
 };

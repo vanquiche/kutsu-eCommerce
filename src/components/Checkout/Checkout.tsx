@@ -1,10 +1,13 @@
-import { useState, useContext, useRef } from 'react';
+import { useState, useContext, useRef, useEffect } from 'react';
 import { Dinero, dinero, add, multiply, subtract, toUnit } from 'dinero.js';
 import { USD } from '@dinero.js/currencies';
 import useDinero from '../../hooks/useDinero';
 import { CartContext } from '../../contexts/CartContext';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { v4 } from 'uuid';
 import CheckoutItem from './CheckoutItem';
+import ContactForm from './ContactForm';
+import LoadingIcon from '../LoadingIcon/LoadingIcon';
 
 const promoCodes = {
   '10%OFF': 10,
@@ -15,11 +18,13 @@ const promoCodes = {
 
 const Checkout = () => {
   const { state } = useContext(CartContext);
-
+  const [isLoading, setIsLoading] = useState(false);
   const [promo, setPromo] = useState<string | null>(null);
   const [selectedPromo, setSelectedPromo] = useState('');
   const [total, setTotal] = useState<string | null>(null);
   const [code, setCode] = useState('');
+
+  const navigate = useNavigate();
 
   const { sum: subTotal } = useDinero(state);
   // initial taxrate without promo
@@ -28,6 +33,8 @@ const Checkout = () => {
   const [tax, setTax] = useState<string | null>(taxRate_format);
 
   const inputRef = useRef<HTMLInputElement>(null);
+  // generate unique order number
+  const order = v4();
 
   const getTotal = (initial: Dinero<number>, value: Dinero<number>) => {
     const total = subtract(initial, value);
@@ -65,11 +72,24 @@ const Checkout = () => {
     inputRef.current?.blur();
   };
 
+  const confirmOrder = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      navigate(order, {state: {orderNumber: order}});
+    }, 1000);
+  };
+
+  useEffect(() => {
+    // if cart is empty then redirect user back to homepage
+    if (state.length === 0) {
+      navigate('/')
+    }
+  }, [state])
+  
   return (
     <div className='checkout-wrapper'>
-      <Link to='/shop'>
-        <button className='add-btn primary-btn'>CONTINUE SHOPPING</button>
-      </Link>
+      <ContactForm />
 
       <div className='checkout-item-list'>
         <h5 className='checkout-order-title checkout-col-2'>ORDER SUMMARY</h5>
@@ -131,6 +151,19 @@ const Checkout = () => {
             ${total || toUnit(add(subTotal, taxRate)).toFixed(2)}
           </p>
         </div>
+      </div>
+      <div className='button-container'>
+        <Link to='/shop'>
+          <button className='add-btn primary-btn'>CONTINUE SHOPPING</button>
+        </Link>
+
+        <button
+          className='add-btn primary-btn'
+          disabled={state.length === 0 ? true : false}
+          onClick={confirmOrder}
+        >
+          {isLoading ? <LoadingIcon /> : 'CONFIRM ORDER'}
+        </button>
       </div>
     </div>
   );

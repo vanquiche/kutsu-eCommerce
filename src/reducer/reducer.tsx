@@ -1,4 +1,4 @@
-import { ProductType, Action } from "../types/Types";
+import { ProductType, Action } from '../types/Types';
 
 const saveState = (state: ProductType[]) => {
   localStorage.setItem('cart', JSON.stringify(state));
@@ -42,6 +42,12 @@ const removeItem = (state: ProductType[], action: Action) => {
   return newState;
 };
 
+const deleteCart = () => {
+  const newState: ProductType[] = [];
+  saveState(newState);
+  return newState;
+};
+
 export const reducer = (
   state: ProductType[],
   action: Action
@@ -55,6 +61,8 @@ export const reducer = (
       return addItem(state, action);
     case 'remove item':
       return removeItem(state, action);
+    case 'delete cart':
+      return deleteCart();
     default:
       return state;
   }
