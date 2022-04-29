@@ -12,7 +12,7 @@ const FourOFour = () => {
         <p className='page-text'>It looks like this page got lost. The link below will help you find your way back.</p>
       </div>
         <Link to='/' className='page-link'>Kutsu</Link>
-      <LazyLoadImage src={dog} className='page-image' effect='blur'/>
+      {/* <LazyLoadImage src={dog} className='page-image' effect='blur'/> */}
     </div>
   );
 };
