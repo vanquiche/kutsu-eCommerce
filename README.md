@@ -1,10 +1,10 @@
 This project started off as an experiment in building a simple pattern in managing the global state of an app, and turned into an eCommerce mock site to represent a real world application. My goals for this project were simple: create a site that is fast and has a state that is accessible across the app, while also creating a great user-experience and a polished design.
 
 check it out [here](https://kutsu-shop.netlify.app)
-![demo 1](./public/demo-examples/demo-1.png)
-![demo 2](./public/demo-examples/demo-2.png)
-![demo 3](./public/demo-examples/demo-3.png)
-![demo 4](./public/demo-examples/demo-4.png)
+![demo 1](https://res.cloudinary.com/dvrs8gsj3/image/upload/v1664362559/kutsu-eCommerce/demo-1_vpjpxm.jpg)
+![demo 2](https://res.cloudinary.com/dvrs8gsj3/image/upload/v1664362559/kutsu-eCommerce/demo-2_iqoqsr.jpg)
+![demo 3](https://res.cloudinary.com/dvrs8gsj3/image/upload/v1664362558/kutsu-eCommerce/demo-3_fhykgr.jpg)
+![demo 4](https://res.cloudinary.com/dvrs8gsj3/image/upload/v1664362558/kutsu-eCommerce/demo-4_uy1dlv.jpg)
 
 
 ## Tech Stack
