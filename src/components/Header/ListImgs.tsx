@@ -88,7 +88,7 @@ function ListImgs() {
               transition={{ delay: (index + 1) * 0.1 }}
               key={uuidv4()}
             >
-              <img alt={'image of shoes'} className='menu-image' src={image} />
+              <img alt='products' className='menu-image' src={image} />
             </motion.div>
           ))}
         </div>
