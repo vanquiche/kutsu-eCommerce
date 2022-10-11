@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { motion } from 'framer-motion';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import PromoLink from './PromoLink';
 import {
   animateSlideRight,
@@ -55,7 +54,7 @@ const CollageItem: React.FC<Props> = ({
       onMouseEnter={() => setShowBtn(true)}
       onMouseLeave={() => setShowBtn(false)}
     >
-      <img src={image} className={imgClass} loading='lazy' />
+      <img src={image} className={imgClass} loading='lazy' alt='promo'/>
       <PromoLink path={link} text={linkText || 'SHOP NOW'} display={showBtn} />
     </motion.div>
   );

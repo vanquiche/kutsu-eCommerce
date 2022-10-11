@@ -31,7 +31,7 @@ const Home = () => {
   return (
     <div className='home-container'>
       <div className='home-image'>
-        <img src='images/promo-8.jpg' className='promo-image' />
+        <img src='images/promo-8.jpg' className='promo-image' alt='promo'/>
       </div>
 
       <div className='video-wrapper'>

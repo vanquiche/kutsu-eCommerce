@@ -85,8 +85,8 @@ const Checkout = () => {
     if (state.length === 0) {
       navigate('/')
     }
-  }, [state])
-  
+  }, [state, navigate])
+
   return (
     <div className='checkout-wrapper'>
       <ContactForm />

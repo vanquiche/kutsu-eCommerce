@@ -1,5 +1,4 @@
 import { useInView } from 'react-intersection-observer';
-import { motion } from 'framer-motion';
 import { useMediaQuery } from 'react-responsive';
 import CollageItem from './CollageItem';
 

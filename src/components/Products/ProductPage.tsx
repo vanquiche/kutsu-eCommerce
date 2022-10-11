@@ -22,7 +22,7 @@ const ProductPage: React.FC<Props> = ({ product }) => {
   // return the current product being viewed
   const selectedProduct = useMemo(() => {
     return state.filter((item) => item.id === product.id);
-  }, [state]);
+  }, [state, product.id]);
 
   // if length equals 0 then product has not
   // been added to cart
@@ -50,7 +50,7 @@ const ProductPage: React.FC<Props> = ({ product }) => {
     } else if (qtyInCart < product.stock!) {
       setInStock(true);
     }
-  }, [qtyInCart]);
+  }, [qtyInCart, product.stock]);
 
   return (
     <div>
@@ -61,7 +61,7 @@ const ProductPage: React.FC<Props> = ({ product }) => {
         / {product.item.toUpperCase()}
       </p>
       <div className='product-container'>
-        <img className='product-hero-image' src={product?.image} />
+        <img className='product-hero-image' src={product?.image} alt='show' />
 
         <div className='info'>
           <p>

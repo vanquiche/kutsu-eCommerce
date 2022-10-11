@@ -45,17 +45,22 @@ const About = () => {
       </p>
       <h6>Money</h6>
       <p>
-        The second problem to solve was performing the arithmetic operations
-        on money and formatting it. When dealing with
-        money it’s a bad idea to use floating-point numbers i.e. decimal values
-        (if you don’t know why then learn about it
-        <a href='https://stackoverflow.com/a/3730040' target='_blank'>
+        The second problem to solve was performing the arithmetic operations on
+        money and formatting it. When dealing with money it’s a bad idea to use
+        floating-point numbers i.e. decimal values (if you don’t know why then
+        learn about it
+        <a
+          href='https://stackoverflow.com/a/3730040'
+          target='_blank'
+          rel='noreferrer'
+        >
           {' '}
           here
         </a>
         ). Thankfully there is already a great library to handle money
-        manipulation called <strong>Dinero.js</strong>. Dinero provides easy-to-use methods for calculating, parsing, and formatting money, making my
-        life as simple as 2 + 2.
+        manipulation called <strong>Dinero.js</strong>. Dinero provides
+        easy-to-use methods for calculating, parsing, and formatting money,
+        making my life as simple as 2 + 2.
       </p>
       <h5>Conclusion</h5>
       <p>
@@ -67,7 +72,11 @@ const About = () => {
         the site to be aesthetically pleasing while resembling a genuine brand.
         I hope you enjoy exploring the project as much as I did building it.
         Feel free to check out the
-        <a href='https://github.com/vanquiche/kutsu-eCommerce' target='_blank'>
+        <a
+          href='https://github.com/vanquiche/kutsu-eCommerce'
+          target='_blank'
+          rel='noreferrer'
+        >
           {' '}
           code
         </a>

@@ -13,7 +13,7 @@ const ConfirmationPage = () => {
     return () => {
       dispatch({ type: 'delete cart' });
     };
-  }, []);
+  }, [dispatch]);
   return <Confirmation orderNumber={orderNumber} />;
 };
 

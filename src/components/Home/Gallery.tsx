@@ -30,9 +30,8 @@ const settings = {
 };
 
 const Gallery = () => {
-  const title = 'FOLLOW THE DRIP';
 
-  const { ref, inView } = useInView({
+  const { ref } = useInView({
     threshold: 1,
     triggerOnce: true,
     delay: 1000,
@@ -42,7 +41,6 @@ const Gallery = () => {
 
       <h5 className='collage-title'>FOLLOW THE DRIP</h5>
       <div ref={ref} className='gallery-animate-ref'>
-        {/* {`${inView}`} */}
       </div>
 
       <Slider {...settings}>
