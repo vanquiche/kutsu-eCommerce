@@ -15,14 +15,14 @@ const navlinks = [
     text: 'SHOP',
     path: '/shop',
   },
-  {
-    text: 'WORKSHOP',
-    path: '/workshop',
-  },
-  {
-    text: 'ABOUT',
-    path: '/about',
-  },
+  // {
+  //   text: 'WORKSHOP',
+  //   path: '/workshop',
+  // },
+  // {
+  //   text: 'ABOUT',
+  //   path: 'https://github.com/vanquiche/kutsu-eCommerce',
+  // },
 ];
 
 const Header = () => {
@@ -84,7 +84,6 @@ const Header = () => {
           key={uuidv4()}
           onMouseEnter={dismissDropdownMenu}
           to='/'
-          tabIndex={1}
         >
           Kutsu
         </Link>
@@ -101,12 +100,17 @@ const Header = () => {
                     : dismissDropdownMenu
                 }
                 to={link.path}
-                tabIndex={index + 2}
               >
                 {link.text}
               </Link>
             );
           })}
+          <a
+            className='nav-link'
+            href='https://github.com/vanquiche/kutsu-eCommerce'
+          >
+            ABOUT
+          </a>
         </div>
         {!showMobileMenu && (
           <CartBtn

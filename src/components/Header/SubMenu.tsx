@@ -12,7 +12,7 @@ const SubMenu = (props: { onLeave?: () => void; keyRef: string, indexStart: numb
       animate={{ scaleY: 1 }}
       exit={{ scaleY: 0, opacity: 0, transition: { delay: 0.25 } }}
     >
-      <ListImgs tabIndexStart={props.indexStart}/>
+      <ListImgs />
     </motion.div>
   );
 };

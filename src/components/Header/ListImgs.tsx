@@ -30,9 +30,8 @@ export const ACCESSORY_LINKS = [
   'https://assets.atmos-tokyo.com/items/S/t23-21-006-blk-1s.jpg',
   'https://assets.atmos-tokyo.com/items/S/atm-pa-s012-naw-1s.jpg',
 ];
-function ListImgs(props: { tabIndexStart?: number }) {
+function ListImgs() {
   // console.log('render display container');
-  const indexStart = props.tabIndexStart ? props.tabIndexStart : 0;
 
   const [displayImages, setDisplayImages] = useState({
     category: 'lifestyle',
@@ -68,7 +67,6 @@ function ListImgs(props: { tabIndexStart?: number }) {
           {CATEGORIES.map((link, index) => (
             <li
               className='category-link'
-              tabIndex={index + indexStart}
               key={uuidv4()}
             >
               <Link to='/shop' onMouseEnter={() => changeDisplay(link)}>

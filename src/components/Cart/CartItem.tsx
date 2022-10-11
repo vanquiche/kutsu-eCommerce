@@ -9,7 +9,7 @@ const CartItem = (props: { product: ProductType; keyRef: string }) => {
 
   return (
     <div key={props.keyRef} className='cart-container'>
-      <img src={props.product.image} className='cart-thumbnail' />
+      <img src={props.product.image} className='cart-thumbnail' alt='cart' />
       <div className='cart-detail-container'>
         <p className='cart-name'>{props.product.item.toUpperCase()}</p>
         <p className='cart-price'>${props.product.format}</p>

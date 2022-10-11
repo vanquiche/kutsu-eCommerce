@@ -1,4 +1,6 @@
-
+html, body {
+  font-size: medium;
+}
 
 .App {
   text-align: center;

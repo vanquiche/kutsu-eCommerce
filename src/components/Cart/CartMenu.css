@@ -69,8 +69,8 @@ aside {
   display: flex;
   justify-content: space-between;
 }
-.cart-total span {
-
+.cart-price {
+  font-weight: 700;
 }
 
 .overlay {

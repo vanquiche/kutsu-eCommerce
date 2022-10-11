@@ -8,7 +8,7 @@ const Catalogue = () => {
     <>
       <div className='catalogue-container'>
         {list?.map((product) => {
-          return <ProductThumb product={product} keyRef={v4()}/>;
+          return <ProductThumb product={product} keyRef={v4()} key={v4()}/>;
         })}
       </div>
     </>

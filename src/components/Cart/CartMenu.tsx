@@ -33,7 +33,7 @@ const CartMenu = (props: { keyRef: string; onClose: () => void }) => {
         </div>
         <div className='checkout-btn-container'>
           <p className='cart-total'>
-            SUBTOTAL <span>${format.toFixed(2)}</span>
+            SUBTOTAL <span className='cart-price'>${format.toFixed(2)}</span>
           </p>
 
           <Link to='/checkout'>
